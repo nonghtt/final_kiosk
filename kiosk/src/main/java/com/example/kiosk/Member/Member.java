@@ -1,6 +1,5 @@
 package com.example.kiosk.Member;
 
-import java.util.Date;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -25,8 +24,8 @@ public class Member {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private String id;
 	private String pwd;
-	private int phonenum;
-	private Date birthday;
+	private String phonenum;
+	private String birthday;
 	private String email;
 	
 	

@@ -16,7 +16,7 @@ import lombok.ToString;
 public class MemberDto {
 	private String id;
 	private String pwd;
-	private int phonenum;
-	private Date birthday;
+	private String phonenum;
+	private String birthday;
 	private String email;
 }
