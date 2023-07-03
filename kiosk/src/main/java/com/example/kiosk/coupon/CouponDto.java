@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class CouponDto {
-	private int couponnum;
+	private String couponnum;
 	private Member id;
 	private String storeid;
 	private Date issueddate;
