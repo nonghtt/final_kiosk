@@ -23,6 +23,7 @@ public class Member {
 	@Id
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private String id;
+	private String name;
 	private String pwd;
 	private String phonenum;
 	private String birthday;

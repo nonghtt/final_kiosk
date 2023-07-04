@@ -4,6 +4,7 @@ package com.example.kiosk.Sellingtype;
 import java.util.Date;
 
 import com.example.kiosk.Member.Member;
+import com.example.kiosk.coupon.Coupon;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +21,9 @@ public class SellingtypeDto {
 
 	private int tempnum;
 	private Member id;
-	private String product;
-	private String sellproduct;
+	private Coupon couponnum;
+	private int productnum;
+	private int sellproduct;
 	private String storeid;
 	private Date wdate;
 

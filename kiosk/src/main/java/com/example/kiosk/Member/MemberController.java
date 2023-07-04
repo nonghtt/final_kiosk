@@ -48,7 +48,7 @@ public class MemberController {
 	public Map findById(@PathVariable("id") String id) {
 		MemberDto dto = service.getById(id);
 		Map map = new HashMap();
-		map.put("dtp", dto);
+		map.put("dto", dto);
 		return map;
 	}
 	
