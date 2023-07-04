@@ -21,9 +21,11 @@ public class SellingtypeDto {
 
 	private int tempnum;
 	private Member id;
+
 	private Coupon couponnum;
 	private int productnum;
 	private int sellproduct;
+
 	private String storeid;
 	private Date wdate;
 

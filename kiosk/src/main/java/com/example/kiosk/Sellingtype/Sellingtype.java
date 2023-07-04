@@ -41,6 +41,7 @@ public class Sellingtype {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private Member id;
 	
+
 	@JoinColumn(name="couponnum" ,nullable = false)
 	@ManyToOne
 	@OnDelete(action=OnDeleteAction.CASCADE)
@@ -48,6 +49,7 @@ public class Sellingtype {
 	
 	private int productnum;
 	private int sellproduct;
+
 	private String storeid;
 	private Date wdate;
 
