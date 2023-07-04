@@ -20,7 +20,7 @@ public class SellingtypeDto {
 
 	private int tempnum;
 	private Member id;
-	private String product;
+	private int productnum;
 	private String sellproduct;
 	private String storeid;
 	private Date wdate;
