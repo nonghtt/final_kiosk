@@ -17,7 +17,9 @@ public class SellingtypeService {
 	public ArrayList<SellingtypeDto> change(ArrayList<Sellingtype> list){
 		ArrayList<SellingtypeDto> slist = new ArrayList<SellingtypeDto>();
 		for(Sellingtype entity:list) {
-			slist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(), entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate()));
+
+			slist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(), entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate()));
+
 		}
 		return slist;
 	}
@@ -43,7 +45,9 @@ public class SellingtypeService {
 		ArrayList<SellingtypeDto> dtolist = new ArrayList<SellingtypeDto>();
 		
 		for(Sellingtype entity:sellingtypelist) {
-			dtolist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getProductnum(),entity.getSellproduct(),entity.getStoreid(),entity.getWdate()));
+
+			dtolist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(),entity.getSellproduct(),entity.getStoreid(),entity.getWdate()));
+
 			}
 		return dtolist;
 		}
@@ -58,9 +62,11 @@ public class SellingtypeService {
 //	기본적인 추가(생성), 수정
 	public SellingtypeDto save(SellingtypeDto dto) {
 		System.out.println("service1");
-		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),dto.getId(),dto.getProductnum(),dto.getSellproduct(),dto.getStoreid(),dto.getWdate()));
+
+		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),dto.getId(),dto.getCouponnum(),dto.getProductnum(),dto.getSellproduct(),dto.getStoreid(),dto.getWdate()));
 		System.out.println(entity);
-		SellingtypeDto sdto = new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate());
+		SellingtypeDto sdto = new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate());
+
 		System.out.println(sdto);
 		
 		return sdto;

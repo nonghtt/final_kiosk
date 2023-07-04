@@ -1,6 +1,7 @@
 package com.example.kiosk.coupon;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,11 +50,10 @@ public class CouponService {
 		return change(list);
 	}
 	
-	public ArrayList<CouponDto> getByUserid(String id){
-		Member userid = new Member(id,"","",null,"");
+	public ArrayList<Map<String, String>> getByUserid(String id){
 				
-		ArrayList<Coupon> list = dao.findByUserid(userid);
-		return change(list);
+		ArrayList<Map<String, String>> list = dao.findByUserid(id);
+		return list;
 		
 	}
 	
