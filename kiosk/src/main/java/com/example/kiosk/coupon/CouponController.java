@@ -39,9 +39,9 @@ public class CouponController {
 		
 	}
 	
-	@GetMapping("/{id}")
-	public Map getByUserid(@PathVariable("/id") String id) {
-		ArrayList<CouponDto> dlist = service.getByUserid(id);
+	@GetMapping("/mycoupon/{userid}")
+	public Map getByUserid(@PathVariable("userid") String userid) {
+		ArrayList<Map<String, String>> dlist = service.getByUserid(userid);
 		Map map = new HashMap();
 		map.put("mycouponlist",dlist);
 		return map;

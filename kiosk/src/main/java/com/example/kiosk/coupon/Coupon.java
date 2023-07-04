@@ -32,7 +32,7 @@ public class Coupon {
 	@Id
 	private String couponnum;
 	
-	@JoinColumn(name="id" ,nullable = false)
+	@JoinColumn(name="userid" ,nullable = false)
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Member userid;

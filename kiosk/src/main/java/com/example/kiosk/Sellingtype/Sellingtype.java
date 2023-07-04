@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.example.kiosk.Member.Member;
+import com.example.kiosk.coupon.Coupon;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,8 +41,13 @@ public class Sellingtype {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private Member id;
 	
-	private String product;
-	private String sellproduct;
+	@JoinColumn(name="couponnum" ,nullable = false)
+	@ManyToOne
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private Coupon couponnum;
+	
+	private int productnum;
+	private int sellproduct;
 	private String storeid;
 	private Date wdate;
 

@@ -15,7 +15,7 @@ public class MemberService {
 	private ArrayList<MemberDto> change(ArrayList<Member> list) {
 		ArrayList<MemberDto> dlist = new ArrayList<MemberDto>();
 		for (Member entity : list) {
-			MemberDto dto = new MemberDto(entity.getId(), entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
+			MemberDto dto = new MemberDto(entity.getId(),entity.getName() ,entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
 					entity.getEmail());
 
 			dlist.add(dto);
@@ -24,7 +24,7 @@ public class MemberService {
 	}
 
 	public MemberDto save(MemberDto dto) {
-		Member entity = dao.save(new Member(dto.getId(), dto.getPwd(), dto.getPhonenum(), dto.getBirthday(), dto.getEmail()));
+		Member entity = dao.save(new Member(dto.getId(), dto.getName(),dto.getPwd(), dto.getPhonenum(), dto.getBirthday(), dto.getEmail()));
 		dto.setId(entity.getId());
 		dto.setPwd(entity.getPwd());
 		dto.setPhonenum(entity.getPhonenum());
@@ -36,8 +36,14 @@ public class MemberService {
 
 	public MemberDto getById(String id) {
 		Member entity = dao.findById(id).orElse(null);
-		MemberDto dto = new MemberDto(entity.getId(), entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
+		MemberDto dto = null;
+		if(entity != null) {
+		 dto = new MemberDto(entity.getId(),entity.getName() ,entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
 				entity.getEmail());
+		}else {
+			dto = null;
+		}
+		
 		return dto;
 
 	}
@@ -55,7 +61,7 @@ public class MemberService {
 		Member entity = dao.findByEmail(eamil);
 		MemberDto dto = null;
 		if(entity != null) {
-			dto = new MemberDto(entity.getId(), entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
+			dto = new MemberDto(entity.getId(),entity.getName() ,entity.getPwd(), entity.getPhonenum(), entity.getBirthday(),
 				entity.getEmail());
 		}
 		return dto;
