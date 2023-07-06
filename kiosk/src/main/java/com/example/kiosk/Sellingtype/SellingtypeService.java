@@ -1,9 +1,13 @@
 package com.example.kiosk.Sellingtype;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.kiosk.Member.Member;
+import com.example.kiosk.coupon.Coupon;
 
 @Service
 public class SellingtypeService {
@@ -55,15 +59,20 @@ public class SellingtypeService {
 
 	
 	
-	
+	public ArrayList<Map<String, String>> getTopSales(){
+		ArrayList<Map<String, String>> list = dao.findTopSales();
+		return list;
+	}
 
 	
 	
 //	기본적인 추가(생성), 수정
-	public SellingtypeDto save(SellingtypeDto dto) {
+	public SellingtypeDto save(SellingtypeTempDto dto) {
 		System.out.println("service1");
-
-		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),dto.getId(),dto.getCouponnum(),dto.getProductnum(),dto.getSellproduct(),dto.getStoreid(),dto.getWdate()));
+		Member member = new Member(dto.getId(),"","","","","");
+		Coupon coupon = new Coupon( dto.getCouponnum(),member,"",null,null,null,false);
+		System.out.println(coupon);	
+		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),member,coupon,dto.getProductnum(),dto.getSellproduct(),dto.getStoreid(),dto.getWdate()));
 		System.out.println(entity);
 		SellingtypeDto sdto = new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate());
 

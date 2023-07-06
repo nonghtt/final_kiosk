@@ -1,8 +1,9 @@
-package com.example.kiosk.coupon;
+package com.example.kiosk.Sellingtype;
 
 import java.util.Date;
 
 import com.example.kiosk.Member.Member;
+import com.example.kiosk.coupon.Coupon;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,15 +13,17 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
-public class CouponDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class SellingtypeTempDto {
+	private int tempnum;
+	private String id;
+
 	private String couponnum;
-	private Member userid;
+	private int productnum;
+	private int sellproduct;
+
 	private String storeid;
-	private Date issueddate;
-	private Date useddate;
-	private Date expiredate;
-	private boolean used;
+	private Date wdate;
 }
