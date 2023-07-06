@@ -26,9 +26,8 @@ public class SellingtypeController {
 	
 	
 	//추가, 생성
-	@PostMapping("/standard")
-	public Map standardsave(SellingtypeDto dto) {
-		System.out.println(1);
+	@PostMapping("")
+	public Map standardsave(SellingtypeTempDto dto) {
 		SellingtypeDto d = service.save(dto);
 		System.out.println(d);
 		Map map = new HashMap();
@@ -59,5 +58,14 @@ public class SellingtypeController {
 	@DeleteMapping("")
 	public void delSellingtype(int tempnum) {
 		service.del(tempnum);
+	}
+	
+	@GetMapping("/topsales")
+	public Map getTopSales() {
+			ArrayList<Map<String, String>> list = service.getTopSales();
+			Map map = new HashMap();
+			map.put("toplist", list);
+			return map;
+		
 	}
 }

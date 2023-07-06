@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.kiosk.Member.Member;
 
 @Service
 public class CouponService {
@@ -26,9 +25,9 @@ public class CouponService {
 	}
 	
 	public CouponDto save(CouponDto dto) {
-		Coupon entity = dao.save(new Coupon(dto.getCouponnum(),dto.getId(),dto.getStoreid(),dto.getIssueddate(),dto.getUseddate(),dto.getExpiredate(),dto.isUsed()));	
+		Coupon entity = dao.save(new Coupon(dto.getCouponnum(),dto.getUserid(),dto.getStoreid(),dto.getIssueddate(),dto.getUseddate(),dto.getExpiredate(),dto.isUsed()));	
 		dto.setCouponnum(entity.getCouponnum());
-		dto.setId(entity.getUserid());
+		dto.setUserid(entity.getUserid());
 		dto.setStoreid(entity.getStoreid());
 		dto.setIssueddate(entity.getIssueddate());
 		dto.setUseddate(entity.getUseddate());
