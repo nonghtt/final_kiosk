@@ -38,7 +38,7 @@ public class CouponService {
 		
 	}
 	
-	public CouponDto getByCouponnum(int couponnum) {
+	public CouponDto getByCouponnum(String couponnum) {
 		Coupon entity = dao.findById(couponnum).orElse(null);
 		CouponDto dto = new CouponDto(entity.getCouponnum(), entity.getUserid(),entity.getStoreid(),entity.getIssueddate(),entity.getUseddate(),entity.getExpiredate(),entity.isUsed());
 		return dto;

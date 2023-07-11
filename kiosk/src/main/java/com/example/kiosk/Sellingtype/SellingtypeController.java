@@ -68,4 +68,13 @@ public class SellingtypeController {
 			return map;
 		
 	}
+	
+	@GetMapping("/coupon/{couponnum}")
+	public Map getByCouponnum(@PathVariable("couponnum") String couponnum) {
+		ArrayList<SellingtypeDto> list = service.getByCouponnum(couponnum);
+		Map map = new HashMap();
+		map.put("list", list);
+		return map;
+		
+	}
 }

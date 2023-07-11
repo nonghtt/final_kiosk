@@ -49,6 +49,7 @@ public class Sellingtype {
 	
 	private int productnum;
 	private int sellproduct;
+	private int amount;
 
 	private String storeid;
 	private Date wdate;

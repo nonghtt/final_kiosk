@@ -25,6 +25,7 @@ public class SellingtypeDto {
 	private Coupon couponnum;
 	private int productnum;
 	private int sellproduct;
+	private int amount;
 
 	private String storeid;
 	private Date wdate;
