@@ -23,6 +23,7 @@ public class SellingtypeTempDto {
 	private String couponnum;
 	private int productnum;
 	private int sellproduct;
+	private int amount;
 
 	private String storeid;
 	private Date wdate;

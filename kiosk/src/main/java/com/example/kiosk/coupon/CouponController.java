@@ -31,7 +31,7 @@ public class CouponController {
 	
 	@PostMapping()
 	public Map add(CouponDto dto) {
-		System.out.println(dto);
+		System.out.println("adddto:" +dto);
 		CouponDto d = service.save(dto);
 		Map map = new HashMap();
 		map.put("dto", d);

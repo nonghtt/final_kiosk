@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface CouponDao extends JpaRepository<Coupon, Integer>{
+public interface CouponDao extends JpaRepository<Coupon, String>{
 	
 	@Modifying
 	@Transactional

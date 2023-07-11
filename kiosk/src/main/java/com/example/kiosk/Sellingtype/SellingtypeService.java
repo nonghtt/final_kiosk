@@ -22,7 +22,7 @@ public class SellingtypeService {
 		ArrayList<SellingtypeDto> slist = new ArrayList<SellingtypeDto>();
 		for(Sellingtype entity:list) {
 
-			slist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(), entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate()));
+			slist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(), entity.getProductnum(), entity.getSellproduct(),entity.getAmount(),entity.getStoreid(), entity.getWdate()));
 
 		}
 		return slist;
@@ -50,7 +50,7 @@ public class SellingtypeService {
 		
 		for(Sellingtype entity:sellingtypelist) {
 
-			dtolist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(),entity.getSellproduct(),entity.getStoreid(),entity.getWdate()));
+			dtolist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(),entity.getSellproduct(),entity.getAmount(),entity.getStoreid(),entity.getWdate()));
 
 			}
 		return dtolist;
@@ -72,14 +72,27 @@ public class SellingtypeService {
 		Member member = new Member(dto.getId(),"","","","","");
 		Coupon coupon = new Coupon( dto.getCouponnum(),member,"",null,null,null,false);
 		System.out.println(coupon);	
-		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),member,coupon,dto.getProductnum(),dto.getSellproduct(),dto.getStoreid(),dto.getWdate()));
+		Sellingtype entity = dao.save(new Sellingtype(dto.getTempnum(),member,coupon,dto.getProductnum(),dto.getSellproduct(),dto.getAmount(),dto.getStoreid(),dto.getWdate()));
 		System.out.println(entity);
-		SellingtypeDto sdto = new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(), entity.getSellproduct(), entity.getStoreid(), entity.getWdate());
+		SellingtypeDto sdto = new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(), entity.getSellproduct(),entity.getAmount(), entity.getStoreid(), entity.getWdate());
 
 		System.out.println(sdto);
 		
 		return sdto;
 	}
+	
+	public ArrayList<SellingtypeDto> getByCouponnum(String couponnum){
+		Coupon coupon = new Coupon(couponnum, null, "", null, null, null, false);
+		ArrayList<Sellingtype> list = dao.findByCouponnum(coupon);
+		ArrayList<SellingtypeDto> dlist = new ArrayList<SellingtypeDto>();
+		for(Sellingtype entity: list) {
+
+			dlist.add(new SellingtypeDto(entity.getTempnum(),entity.getId(),entity.getCouponnum(),entity.getProductnum(),entity.getSellproduct(),entity.getAmount(),entity.getStoreid(),entity.getWdate()));
+
+			}
+		return dlist;
+		
+				}
 	
 	//String값만 추가해서 vue로 나가야함.
 //	public SellingtypeDto save(SellingtypeDto dto){
